@@ -18,16 +18,23 @@ $base = rtrim((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['
   <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
     <a href="<?= $base ?>/home" class="font-semibold tracking-tight text-lg">mvp-sorteos</a>
 
-    <nav class="flex items-center gap-6 text-sm">
-      <a class="text-slate-600 hover:text-black" href="<?= $base ?>/planes">Planes</a>
-      <a class="text-slate-600 hover:text-black" href="<?= $base ?>/dashboard">Dashboard</a>
+    <nav class="space-x-6 text-sm flex items-center">
+  <a href="planes" class="text-gray-600 hover:text-black">Planes</a>
 
-      <?php if (!empty($_SESSION['idusuario'])): ?>
-        <a class="bg-black text-white px-4 py-2 rounded-2xl" href="<?= $base ?>/salir">Salir</a>
-      <?php else: ?>
-        <a class="bg-black text-white px-4 py-2 rounded-2xl" href="<?= $base ?>/login">Ingresar</a>
-      <?php endif; ?>
-    </nav>
+  <?php if (isset($_SESSION["login"])): ?>
+    <a href="dashboard" class="text-gray-600 hover:text-black">Dashboard</a>
+    <a href="salir"
+       class="bg-black text-white px-4 py-2 rounded-xl">
+       Salir
+    </a>
+  <?php else: ?>
+    <a href="login"
+       class="bg-black text-white px-4 py-2 rounded-xl">
+       Ingresar
+    </a>
+  <?php endif; ?>
+</nav>
+
   </div>
 </header>
 

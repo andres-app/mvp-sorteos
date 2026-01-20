@@ -1,7 +1,22 @@
 <?php
-require_once __DIR__ . "/../Config/Conexion.php";
+require_once ROOT_PATH . "/Config/Conexion.php";
 
 class Usuario {
+
+  static public function login($email) {
+
+    $db = Conexion::conectar();
+
+    $stmt = $db->prepare("
+      SELECT idusuario, nombres, email, password_hash, rol
+      FROM usuario
+      WHERE email = :email AND estado = 1
+      LIMIT 1
+    ");
+
+    $stmt->execute([":email" => $email]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
 
   static public function registrar($datos) {
 
@@ -13,22 +28,9 @@ class Usuario {
     ");
 
     return $stmt->execute([
-      ":nombres"  => $datos["nombres"],
-      ":email"    => $datos["email"],
+      ":nombres"  => trim($datos["nombres"]),
+      ":email"    => trim($datos["email"]),
       ":password" => password_hash($datos["password"], PASSWORD_DEFAULT)
     ]);
-  }
-
-  static public function login($email) {
-
-    $db = Conexion::conectar();
-
-    $stmt = $db->prepare("
-      SELECT * FROM usuario
-      WHERE email = :email AND estado = 1
-    ");
-
-    $stmt->execute([":email" => $email]);
-    return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 }
