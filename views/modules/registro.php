@@ -1,13 +1,28 @@
-<div class="max-w-md mx-auto px-6 py-16">
-  <div class="bg-white rounded-3xl shadow-sm border border-black/5 p-8">
-    <h2 class="text-2xl font-semibold tracking-tight text-center">Registro</h2>
-    <p class="text-slate-500 text-sm text-center mt-2">MVP: en el siguiente paso conectamos esto a la BD.</p>
+<?php
+require_once "Models/Usuario.php";
+Usuario::registrar();
+?>
 
-    <form class="mt-8 space-y-4" method="POST" action="<?= $base ?>/login">
-      <input class="w-full rounded-2xl border border-black/10 px-4 py-3" placeholder="Nombres" />
-      <input class="w-full rounded-2xl border border-black/10 px-4 py-3" placeholder="Correo" />
-      <input type="password" class="w-full rounded-2xl border border-black/10 px-4 py-3" placeholder="Contraseña" />
-      <button class="w-full bg-black text-white py-3 rounded-2xl font-medium">Crear cuenta (demo)</button>
+<div class="flex justify-center py-24 px-6">
+  <div class="bg-white max-w-md w-full rounded-3xl shadow-lg p-10">
+    <h2 class="text-2xl font-semibold text-center">Crear cuenta</h2>
+
+    <form method="POST" class="mt-8 space-y-4">
+      <input name="nombres" required
+        placeholder="Nombre completo"
+        class="w-full border rounded-xl px-4 py-3">
+
+      <input type="email" name="email" required
+        placeholder="Correo"
+        class="w-full border rounded-xl px-4 py-3">
+
+      <input type="password" name="password" required
+        placeholder="Contraseña"
+        class="w-full border rounded-xl px-4 py-3">
+
+      <button class="w-full bg-black text-white py-3 rounded-xl">
+        Registrarme
+      </button>
     </form>
   </div>
 </div>

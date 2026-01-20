@@ -1,4 +1,3 @@
 <?php
-session_destroy();
-header("Location: {$base}/login");
-exit;
+require_once "Models/Usuario.php";
+Usuario::salir();

@@ -1,13 +1,18 @@
 <?php
-require_once __DIR__ . '/Conexion.php';
+require_once __DIR__ . "/../Config/Conexion.php";
 
-class Plan
-{
-  public static function listarActivos()
-  {
-    $cn = Conexion::conectar();
-    $st = $cn->prepare("SELECT idplan, nombre, precio, tickets_mensuales FROM plan WHERE estado=1 ORDER BY idplan ASC");
-    $st->execute();
-    return $st->fetchAll();
+class Plan {
+
+  static public function listarActivos() {
+
+    $db = Conexion::conectar();
+
+    $stmt = $db->prepare("
+      SELECT * FROM plan
+      WHERE estado = 1
+    ");
+
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 }
