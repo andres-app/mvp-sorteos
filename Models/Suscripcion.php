@@ -36,4 +36,27 @@ class Suscripcion {
     $stmt->execute([":idusuario" => $idusuario]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
+
+  static public function activar($idsuscripcion) {
+
+    $db = Conexion::conectar();
+  
+    $inicio = date("Y-m-d");
+    $fin = date("Y-m-d", strtotime("+30 days"));
+  
+    $stmt = $db->prepare("
+      UPDATE suscripcion
+      SET estado = 'activa',
+          inicia_en = :inicio,
+          vence_en = :fin
+      WHERE idsuscripcion = :idsuscripcion
+    ");
+  
+    return $stmt->execute([
+      ":inicio"        => $inicio,
+      ":fin"           => $fin,
+      ":idsuscripcion" => $idsuscripcion
+    ]);
+  }
+  
 }

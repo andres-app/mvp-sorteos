@@ -1,6 +1,8 @@
-Options All -Indexes
+Options -Indexes
+
 RewriteEngine On
+RewriteBase /mvp-sorteos/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([-a-zA-Z0-9]+)$ index.php?url=$1 [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?url=$1 [QSA,L]

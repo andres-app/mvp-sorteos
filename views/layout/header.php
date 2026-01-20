@@ -1,7 +1,12 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
-$base = rtrim((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']), '/');
-// Si estás en htdocs/mvp-sorteos, $base será http://localhost/mvp-sorteos
+
+$base = rtrim(
+  (isset($_SERVER['HTTPS']) ? 'https' : 'http') .
+  '://' . $_SERVER['HTTP_HOST'] .
+  dirname($_SERVER['SCRIPT_NAME']),
+  '/'
+);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,31 +14,62 @@ $base = rtrim((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MVP Sorteos</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- App styles -->
   <link rel="stylesheet" href="<?= $base ?>/assets/css/app.css" />
 </head>
+
 <body class="text-slate-900">
 
 <header class="bg-white/90 backdrop-blur border-b border-black/5 sticky top-0 z-50">
   <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-    <a href="<?= $base ?>/home" class="font-semibold tracking-tight text-lg">mvp-sorteos</a>
 
+    <!-- LOGO -->
+    <a href="<?= $base ?>/home"
+       class="font-semibold tracking-tight text-lg">
+       mvp-sorteos
+    </a>
+
+    <!-- NAV -->
     <nav class="space-x-6 text-sm flex items-center">
-  <a href="planes" class="text-gray-600 hover:text-black">Planes</a>
 
-  <?php if (isset($_SESSION["login"])): ?>
-    <a href="dashboard" class="text-gray-600 hover:text-black">Dashboard</a>
-    <a href="salir"
-       class="bg-black text-white px-4 py-2 rounded-xl">
-       Salir
-    </a>
-  <?php else: ?>
-    <a href="login"
-       class="bg-black text-white px-4 py-2 rounded-xl">
-       Ingresar
-    </a>
-  <?php endif; ?>
-</nav>
+      <a href="<?= $base ?>/planes"
+         class="text-gray-600 hover:text-black">
+         Planes
+      </a>
+
+      <?php if (isset($_SESSION["login"])): ?>
+
+        <a href="<?= $base ?>/dashboard"
+           class="text-gray-600 hover:text-black">
+           Dashboard
+        </a>
+
+        <?php if (isset($_SESSION["rol"]) && $_SESSION["rol"] === "admin"): ?>
+          <a href="<?= $base ?>/admin_pagos"
+             class="text-gray-600 hover:text-black font-medium">
+             Admin
+          </a>
+        <?php endif; ?>
+
+        <a href="<?= $base ?>/salir"
+           class="bg-black text-white px-4 py-2 rounded-xl hover:opacity-90 transition">
+           Salir
+        </a>
+
+      <?php else: ?>
+
+        <a href="<?= $base ?>/login"
+           class="bg-black text-white px-4 py-2 rounded-xl hover:opacity-90 transition">
+           Ingresar
+        </a>
+
+      <?php endif; ?>
+
+    </nav>
 
   </div>
 </header>

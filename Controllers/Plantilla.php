@@ -17,7 +17,8 @@ class Plantilla
       'planes',
       'pago',
       'dashboard',
-      'salir'
+      'salir',
+      'admin_pagos'
     ];
 
     if ($ruta === '') {
