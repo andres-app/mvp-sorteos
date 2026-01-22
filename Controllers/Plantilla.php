@@ -18,7 +18,10 @@ class Plantilla
       'pago',
       'dashboard',
       'salir',
-      'admin_pagos'
+      'admin_pagos',
+      'admin_premios',
+      'admin_premio_nuevo'
+
     ];
 
     if ($ruta === '') {
