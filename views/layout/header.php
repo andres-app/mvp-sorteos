@@ -55,11 +55,45 @@ $base = rtrim(
           </a>
 
           <?php if (isset($_SESSION["rol"]) && $_SESSION["rol"] === "admin"): ?>
-            <a href="<?= $base ?>/admin_pagos"
-              class="text-gray-600 hover:text-black font-medium">
-              Admin
-            </a>
+            <div class="relative group">
+
+              <!-- BOTÓN -->
+              <button
+                class="text-gray-600 hover:text-black font-medium flex items-center gap-1 py-2">
+                Admin
+                <span class="text-xs">⌄</span>
+              </button>
+
+              <!-- SUBMENU -->
+              <div
+                class="absolute right-0 top-full pt-2
+             opacity-0 invisible
+             group-hover:opacity-100 group-hover:visible
+             transition">
+
+                <div class="w-44 bg-white rounded-2xl shadow-lg border border-black/5 overflow-hidden">
+
+                  <a href="<?= $base ?>/admin_pagos"
+                    class="block px-4 py-3 text-sm hover:bg-black hover:text-white transition">
+                    Pagos
+                  </a>
+
+                  <a href="<?= $base ?>/admin_premios"
+                    class="block px-4 py-3 text-sm hover:bg-black hover:text-white transition">
+                    Premios
+                  </a>
+
+                  <a href="<?= $base ?>/admin_sorteos"
+                    class="block px-4 py-3 text-sm hover:bg-black hover:text-white transition">
+                    Sorteos
+                  </a>
+
+                </div>
+              </div>
+
+            </div>
           <?php endif; ?>
+
 
           <a href="<?= $base ?>/salir"
             class="bg-black text-white px-4 py-2 rounded-xl hover:opacity-90 transition">
