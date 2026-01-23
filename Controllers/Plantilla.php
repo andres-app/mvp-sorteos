@@ -16,7 +16,7 @@ class Plantilla
       'registro',
       'planes',
       'pago',
-      'dashboard',
+      'mi-cuenta',
       'salir',
       'admin_pagos',
       'admin_premios',

@@ -5,7 +5,7 @@ $error = null;
 
 // 👉 Si ya está logueado, no debería ver login
 if (isset($_SESSION["login"])) {
-  header("Location: dashboard");
+  header("Location: mi-cuenta");
   exit;
 }
 
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION["nombres"]   = $usuario["nombres"];
     $_SESSION["rol"]       = $usuario["rol"];
 
-    header("Location: dashboard");
+    header("Location: mi-cuenta");
     exit;
 
   } else {

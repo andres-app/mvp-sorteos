@@ -49,9 +49,9 @@ $base = rtrim(
 
         <?php if (isset($_SESSION["login"])): ?>
 
-          <a href="<?= $base ?>/dashboard"
+          <a href="<?= $base ?>/mi-cuenta"
             class="text-gray-600 hover:text-black">
-            Dashboard
+            Mi cuenta
           </a>
 
           <?php if (isset($_SESSION["rol"]) && $_SESSION["rol"] === "admin"): ?>

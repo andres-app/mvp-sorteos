@@ -3,7 +3,7 @@ require_once "Models/Usuario.php";
 
 // 👉 Si ya está logueado, no debería ver registro
 if (isset($_SESSION["login"])) {
-  header("Location: dashboard");
+  header("Location: mi-cuenta");
   exit;
 }
 
