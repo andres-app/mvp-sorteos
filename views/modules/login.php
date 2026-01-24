@@ -28,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST['form'] ?? '') === 'login')
 
     header("Location: home");
     exit;
-
   } else {
     $error = "Correo o contraseña incorrectos";
     $tab = 'login';
@@ -63,18 +62,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST['form'] ?? '') === 'registr
     <!-- TABS -->
     <div class="flex gap-2 mb-8">
       <a href="?tab=login"
-         class="flex-1 text-center py-2 rounded-xl text-sm font-medium
+        class="flex-1 text-center py-2 rounded-xl text-sm font-medium
          <?= $tab === 'login'
-           ? 'bg-black text-white'
-           : 'bg-slate-100 text-slate-600 hover:bg-slate-200' ?>">
+            ? 'bg-black text-white'
+            : 'bg-slate-100 text-slate-600 hover:bg-slate-200' ?>">
         Iniciar sesión
       </a>
 
       <a href="?tab=registro"
-         class="flex-1 text-center py-2 rounded-xl text-sm font-medium
+        class="flex-1 text-center py-2 rounded-xl text-sm font-medium
          <?= $tab === 'registro'
-           ? 'bg-black text-white'
-           : 'bg-slate-100 text-slate-600 hover:bg-slate-200' ?>">
+            ? 'bg-black text-white'
+            : 'bg-slate-100 text-slate-600 hover:bg-slate-200' ?>">
         Crear cuenta
       </a>
     </div>
@@ -169,10 +168,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST['form'] ?? '') === 'registr
     <!-- GOOGLE (solo UI) -->
     <div class="mt-8">
       <a href="#"
-         class="w-full flex items-center justify-center gap-3
-                border border-black/10 py-3 rounded-xl text-sm
-                hover:bg-black hover:text-white transition">
-        <img src="assets/img/google.svg" class="w-5 h-5">
+        class="w-full flex items-center justify-center gap-3
+          border border-black/10 py-3 rounded-xl text-sm
+          hover:bg-black hover:text-white transition">
+
+        <!-- SVG INLINE -->
+        <svg class="w-5 h-5" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.72 1.23 9.21 3.65l6.85-6.85C35.9 2.4 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.02 17.74 9.5 24 9.5z" />
+          <path fill="#4285F4" d="M46.5 24.5c0-1.56-.14-3.06-.4-4.5H24v9h12.7c-.55 2.96-2.22 5.47-4.7 7.15l7.27 5.63c4.26-3.93 6.73-9.72 6.73-17.28z" />
+          <path fill="#FBBC05" d="M10.54 28.41c-.48-1.45-.76-2.99-.76-4.41s.28-2.96.76-4.41l-7.98-6.19C.92 16.6 0 20.2 0 24s.92 7.4 2.56 10.6l7.98-6.19z" />
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.14 15.91-5.81l-7.27-5.63c-2.02 1.35-4.6 2.14-8.64 2.14-6.26 0-11.57-3.52-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+        </svg>
         Continuar con Google
       </a>
     </div>
