@@ -190,7 +190,7 @@
 <!-- ===================== -->
 <!-- PLANES -->
 <!-- ===================== -->
-<section class="max-w-7xl mx-auto px-6 py-24">
+<section id="planes" class="max-w-7xl mx-auto px-6 py-24">
 
   <h2 class="text-4xl md:text-5xl font-semibold text-center">
     Elige tu plan

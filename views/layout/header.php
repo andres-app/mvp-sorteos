@@ -42,7 +42,7 @@ $base = rtrim(
           Inicio
         </a>
 
-        <a href="<?= $base ?>/planes"
+        <a href="<?= $base ?>/home#planes"
           class="text-gray-600 hover:text-black">
           Planes
         </a>
