@@ -2,3 +2,35 @@
   --bg: #f5f5f7;
 }
 body{ background: var(--bg); }
+
+/* ===================== */
+/* TOASTER */
+/* ===================== */
+
+.toast {
+  min-width: 280px;
+  max-width: 360px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  border-left: 4px solid #7c3aed;
+  font-size: 14px;
+  color: #111;
+  animation: slideIn .3s ease-out;
+}
+
+.toast.success { border-left-color: #16a34a; }
+.toast.error   { border-left-color: #dc2626; }
+.toast.info    { border-left-color: #7c3aed; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
